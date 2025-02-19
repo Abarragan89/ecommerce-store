@@ -1,13 +1,11 @@
-import { Button } from '@/components/ui/button'
-import React from 'react'
+import sampleData from "@/db/sample-data"
+import ProductList from "@/components/shared/product/product-list"
 
-export default function page() {
+export default async function Homepage() {
+  console.log(sampleData)
   return (
-    <div>
-      <h1>Larkspur & Lily</h1>
-      <Button>
-        Submit
-      </Button>
-    </div>
+    <>
+      <ProductList data={sampleData.products} title="Newest Arrivals" limit={4} />
+    </>
   )
 }
