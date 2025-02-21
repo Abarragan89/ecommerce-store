@@ -9,7 +9,8 @@ export default function ProductPrice({ value, className }: { value: number, clas
     return (
         <p className={cn('text-2xl', className)}>
             <span className="text-xs align-super">$</span>
-            <span className="text-xs align-super">.{cents}</span>
+            {dollars}
+            <span className="text-xs align-super">{cents}</span>
         </p>
     )
 }
