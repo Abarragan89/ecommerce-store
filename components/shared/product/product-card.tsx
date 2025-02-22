@@ -6,7 +6,7 @@ import { Product } from "@/types"
 
 export default function ProductCard({ product }: { product: Product }) {
     return (
-        <Card className="w-full max-w-sm">
+        <Card className="w-full max-w-sm mx-auto">
             <CardHeader className="p-0 items-center">
                 <Link href={`/product/${product.slug}`}>
                     <Image
