@@ -6,7 +6,7 @@ import { isRedirectError } from "next/dist/client/components/redirect-error";
 // Sign in user with email magic link
 export async function signInWithMagicLink(prevState:unknown, formData: FormData) {
     try {
-        const userEmail = signInFormSchema.parse({
+        signInFormSchema.parse({
             email: formData.get('email')
         })
         await signIn("sendgrid", formData)

@@ -3,7 +3,6 @@ import ModeToggle from "./mode-toggle";
 import Link from "next/link";
 import { EllipsisVertical, ShoppingCart, UserIcon } from "lucide-react";
 import { SheetContent, SheetDescription, SheetTitle, SheetTrigger, Sheet } from "@/components/ui/sheet";
-import { SignIn } from "@/components/sign-in";
 
 export default function Menu() {
     return (
