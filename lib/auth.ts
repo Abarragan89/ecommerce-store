@@ -2,7 +2,6 @@ import NextAuth from "next-auth"
 import Sendgrid from "next-auth/providers/sendgrid"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { prisma } from "@/db/prisma"
-import { Session, User } from "next-auth"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
     adapter: PrismaAdapter(prisma),
@@ -21,9 +20,9 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         maxAge: 30 * 24 * 60 * 60 // 30 days 
     },
     callbacks: {
-        // @ts-ignore: let there be any here
-        async session({ session, user, trigger, token }: any) {
+        async session({ session, user, trigger, token }) {
             // Set the user ID from the token
+            // @ts-expect-error: let there be any here
             session.user.id = token.sub;
             
             // It there is an update, set the user name
