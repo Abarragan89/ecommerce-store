@@ -7,8 +7,6 @@ import { cn } from '@/lib/utils';
 export default function ProductImages({ images }: { images: string[] }) {
 
     const [current, setCurrent] = useState(0)
-
-    console.log('images ', images)
     return (
         <div className="space-y-4">
             <Image
