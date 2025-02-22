@@ -27,8 +27,8 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <head nonce={nonce}>
-      </head>
+      {/* <head nonce={nonce}>
+      </head> */}
       <body
         className={`${inter.className} antialiased`}
       >
