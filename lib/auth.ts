@@ -24,12 +24,32 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
             // Set the user ID from the token
             // @ts-expect-error: let there be any here
             session.user.id = token.sub;
-            
+            // @ts-expect-error: let there be any here
+            session.user.role = token.role;
+            session.user.name = token.name;
             // It there is an update, set the user name
             if (trigger === 'update') {
                 session.user.name = user.name
             }
             return session
+        },
+        async jwt({ token, user, trigger, session }) {
+            //assign user fields to the token
+            if (user) {
+                // @ts-expect-error: let there be any here
+                token.role = user.role;
+            }
+            // Assign Email to name
+            token.name = user.email!.split('@')[0];
+
+            // update database to reflect token name
+            await prisma.user.update({
+                where: { id: user.id },
+                data: {
+                    name: token.name
+                }
+            })
+            return token
         }
     }
 })
